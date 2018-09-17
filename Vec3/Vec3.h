@@ -42,7 +42,7 @@ public:
 
 		a = pow(x, x);
 		b = pow(y, y);
-		c = poew(z, z);
+		c = pow(z, z);
 
 		normal = sqrt(a + b + c);
 
