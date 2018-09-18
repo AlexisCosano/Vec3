@@ -81,52 +81,52 @@ public:
 
 	// Operators -----------------------------------------------------------------------
 
-	Vector3 operator=(Vector3 vec1, Vector3 vec2)
+	Vector3 operator=(Vector3 vec)
 	{
-		vec1.x = vec2.x;
-		vec1.y = vec2.y;
-		vec1.z = vec2.z;
+		x = vec.x;
+		y = vec.y;
+		z = vec.z;
 	}
 
-	Vector3 operator==(Vector3 vec1, Vector3 vec2)
+	Vector3 operator==(Vector3 vec)
 	{
-		return(vec1.x == vec2.x && vec1.y == vec2.y && vec1.z == vec2.z);
+		return(x == vec.x && y == vec.y && z == vec.z);
 	}
 
-	Vector3 operator+(Vector3 vec1, Vector3 vec2)
+	Vector3 operator+(Vector3 vec)
 	{
 		Vector3 tmp;
 
-		tmp.x = vec1.x + vec2.x;
-		tmp.y = vec1.y + vec2.y;
-		tmp.z = vec1.z + vec2.z;
+		tmp.x = x + vec.x;
+		tmp.y = y + vec.y;
+		tmp.z = z + vec.z;
 
 		return(tmp);
 	}
 
-	Vector3 operator-(Vector3 vec1, Vector3 vec2)
+	Vector3 operator-(Vector3 vec)
 	{
 		Vector3 tmp;
 
-		tmp.x = vec1.x - vec2.x;
-		tmp.y = vec1.y - vec2.y;
-		tmp.z = vec1.z - vec2.z;
+		tmp.x = x - vec.x;
+		tmp.y = y - vec.y;
+		tmp.z = z - vec.z;
 
 		return(tmp);
 	}
 
-	Vector3 operator+=(Vector3 vec1, Vector3 vec2)
+	Vector3 operator+=(Vector3 vec)
 	{
-		vec1.x += vec2.x;
-		vec1.y += vec2.x;
-		vec1.z += vec2.z;
+		x += vec.x;
+		y += vec.y;
+		z += vec.z;
 	}
 
-	Vector3 operator-=(Vector3 vec1, Vector3 vec2)
+	Vector3 operator-=(Vector3 vec)
 	{
-		vec1.x -= vec2.x;
-		vec1.y -= vec2.x;
-		vec1.z -= vec2.z;
+		x -= vec.x;
+		y -= vec.y;
+		z -= vec.z;
 	}
-}
+};
 // --------------------------------------------------------------------------------
