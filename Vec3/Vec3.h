@@ -12,7 +12,7 @@ using namespace std;
 template <class data> class Vector3
 {
 
-public:
+private:
 	data x, y, z = 0;
 
 public:
@@ -86,6 +86,26 @@ public:
 		c = pow(tmp.z, 2);
 
 		return(sqrt(a + b + c));
+	}
+
+	data GetX()
+	{
+		return(x);
+	}
+
+	data GetY()
+	{
+		return(y);
+	}
+
+	data GetZ()
+	{
+		return(z);
+	}
+
+	void ShowValues()
+	{
+		printf_s("This vector's values are: (%i, %i, %i)\n\n", x, y, z);
 	}
 
 	// Operators -----------------------------------------------------------------------
