@@ -44,22 +44,19 @@ public:
 
 	// Methods -------------------------------------------------------------------------
 
-	Vector3 Normalize()
+	void Normalize()
 	{
 		data normal, a, b, c = 0;
-		Vector3 tmp;
 
-		a = pow(x, x);
-		b = pow(y, y);
-		c = pow(z, z);
+		a = pow(x, 2);
+		b = pow(y, 2);
+		c = pow(z, 2);
 
 		normal = sqrt(a + b + c);
 
-		tmp.x = x / normal;
-		tmp.y = y / normal;
-		tmp.z = z / normal;
-
-		return(tmp);
+		x = x / normal;
+		y = y / normal;
+		z = z / normal;
 	}
 
 	void Zero()
@@ -72,14 +69,14 @@ public:
 		return(x == 0 && y == 0 && z == 0);
 	}
 
-	data DistanceTo(const Vector3 vec1, const Vector3 vec2)
+	data DistanceTo(const Vector3 given_vec)
 	{
 		Vector3 tmp;
 		data a, b, c = 0;
 
-		tmp.x = vec1.x - vec2.x;
-		tmp.y = vec1.y - vec2.y;
-		tmp.z = vec1.z - vec2.z;
+		tmp.x = x - given_vec.x;
+		tmp.y = y - given_vec.y;
+		tmp.z = z - given_vec.z;
 
 		a = pow(tmp.x, 2);
 		b = pow(tmp.y, 2);
