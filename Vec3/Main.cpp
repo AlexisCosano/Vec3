@@ -16,6 +16,9 @@ int main()
 	vec_test - vec_test2;
 	printf_s("vec_test: \nA: %i, B: %i, C: %i \n\n", vec_test.x, vec_test.y, vec_test.z);
 
+	Vector3<int> vec_test3(vec_test2);
+	printf_s("vec_test3: \nA: %i, B: %i, C: %i \n\n", vec_test3.x, vec_test3.y, vec_test3.z);
+
 	getchar();
 	return 0;
 }

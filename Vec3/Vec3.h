@@ -30,14 +30,14 @@ public:
 		y = given_y;
 		z = given_z;
 	}
-/*
-	Vector3(Vector3 vec_cpy)
+
+	Vector3(Vector3& vec_cpy)
 	{
 		x = vec_cpy.x;
 		y = vec_cpy.y;
 		z = vec_cpy.z;
 	}
-	*/
+	
 	// Destructors ---------------------------------------------------------------------
 
 	~Vector3() {};
