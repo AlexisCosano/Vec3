@@ -72,7 +72,7 @@ public:
 		return(x == 0 && y == 0 && z == 0);
 	}
 
-	data DistanceTo(Vector3 vec1, Vector3 vec2)
+	data DistanceTo(const Vector3 vec1, const Vector3 vec2)
 	{
 		Vector3 tmp;
 		data a, b, c = 0;
@@ -88,17 +88,17 @@ public:
 		return(sqrt(a + b + c));
 	}
 
-	data GetX()
+	const data GetX()
 	{
 		return(x);
 	}
 
-	data GetY()
+	const data GetY()
 	{
 		return(y);
 	}
 
-	data GetZ()
+	const data GetZ()
 	{
 		return(z);
 	}
@@ -110,40 +110,40 @@ public:
 
 	// Operators -----------------------------------------------------------------------
 
-	Vector3 operator=(Vector3 vec)
+	void operator=(const Vector3 vec)
 	{
 		x = vec.x;
 		y = vec.y;
 		z = vec.z;
 	}
 
-	Vector3 operator==(Vector3 vec)
+	const bool operator==(const Vector3 vec)
 	{
 		return(x == vec.x && y == vec.y && z == vec.z);
 	}
 
-	void operator+(Vector3 vec)
+	void operator+(const Vector3 vec)
 	{
 		x = x + vec.x;
 		y = y + vec.y;
 		z = z + vec.z;
 	}
 
-	void operator-(Vector3 vec)
+	void operator-(const Vector3 vec)
 	{
 		x = x - vec.x;
 		y = y - vec.y;
 		z = z - vec.z;
 	}
 
-	void operator+=(Vector3 vec)
+	void operator+=(const Vector3 vec)
 	{
 		x += vec.x;
 		y += vec.y;
 		z += vec.z;
 	}
 
-	void operator-=(Vector3 vec)
+	void operator-=(const Vector3 vec)
 	{
 		x -= vec.x;
 		y -= vec.y;
