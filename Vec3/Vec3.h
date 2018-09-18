@@ -12,26 +12,35 @@ using namespace std;
 template <class data> class Vector3
 {
 
-private:
+public:
 	data x, y, z = 0;
 
 public:
 
 	// Constructors --------------------------------------------------------------------
 
-	Vector3(data x, data y, data z);
-
-	Vector3()
+	Vector3() 
 	{
-		data x, y, z = 0;
+		x = y = z = 0;
 	}
 
+	Vector3(data given_x, data given_y, data given_z) 
+	{
+		x = given_x;
+		y = given_y;
+		z = given_z;
+	}
+/*
 	Vector3(Vector3 vec_cpy)
 	{
 		x = vec_cpy.x;
 		y = vec_cpy.y;
 		z = vec_cpy.z;
 	}
+	*/
+	// Destructors ---------------------------------------------------------------------
+
+	~Vector3() {};
 
 	// Methods -------------------------------------------------------------------------
 
@@ -93,36 +102,28 @@ public:
 		return(x == vec.x && y == vec.y && z == vec.z);
 	}
 
-	Vector3 operator+(Vector3 vec)
+	void operator+(Vector3 vec)
 	{
-		Vector3 tmp;
-
-		tmp.x = x + vec.x;
-		tmp.y = y + vec.y;
-		tmp.z = z + vec.z;
-
-		return(tmp);
+		x = x + vec.x;
+		y = y + vec.y;
+		z = z + vec.z;
 	}
 
-	Vector3 operator-(Vector3 vec)
+	void operator-(Vector3 vec)
 	{
-		Vector3 tmp;
-
-		tmp.x = x - vec.x;
-		tmp.y = y - vec.y;
-		tmp.z = z - vec.z;
-
-		return(tmp);
+		x = x - vec.x;
+		y = y - vec.y;
+		z = z - vec.z;
 	}
 
-	Vector3 operator+=(Vector3 vec)
+	void operator+=(Vector3 vec)
 	{
 		x += vec.x;
 		y += vec.y;
 		z += vec.z;
 	}
 
-	Vector3 operator-=(Vector3 vec)
+	void operator-=(Vector3 vec)
 	{
 		x -= vec.x;
 		y -= vec.y;
