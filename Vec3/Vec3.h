@@ -15,7 +15,9 @@ template <class data> class Vector3
 {
 
 private:
-	data x, y, z = 0;
+	data x = 0;
+	data y = 0;
+	data z = 0;
 
 public:
 
@@ -25,12 +27,7 @@ public:
 
 	Vector3(const data &given_x, const data &given_y, const data &given_z) : x(given_x), y(given_y), z(given_z) {}
 
-	Vector3(const Vector3 &vec_cpy)
-	{
-		x = vec_cpy.x;
-		y = vec_cpy.y;
-		z = vec_cpy.z;
-	}
+	Vector3(const Vector3 &vec_cpy) : x(vec_cpy.x), y(vec_cpy.y), z(vec_cpy.z) {}
 	
 	// Destructors ---------------------------------------------------------------------
 

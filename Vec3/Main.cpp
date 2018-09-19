@@ -14,6 +14,13 @@ int main()
 	test_vector3 = test_vector - test_vector2;
 	test_vector3.ShowIntValues();
 
+	Vector3<int> copy(test_vector);
+	copy.ShowIntValues();
+
+	Vector3<int> vec_test4;
+	vec_test4.ShowIntValues();
+
+
 	getchar();
 	return 0;
 }
