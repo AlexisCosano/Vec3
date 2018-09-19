@@ -19,10 +19,7 @@ public:
 
 	// Constructors --------------------------------------------------------------------
 
-	Vector3() 
-	{
-		x = y = z = 0;
-	}
+	Vector3() {}
 
 	Vector3(data given_x, data given_y, data given_z) 
 	{
@@ -100,47 +97,48 @@ public:
 		return(z);
 	}
 
-	void ShowValues()
+	void ShowIntValues()
 	{
 		printf_s("This vector's values are: (%i, %i, %i)\n\n", x, y, z);
 	}
 
+	void ShowFloatValues()
+	{
+		printf_s("This vector's values are: (%f, %f, %f)\n\n", x, y, z);
+	}
+
 	// Operators -----------------------------------------------------------------------
 
-	void operator=(const Vector3 vec)
+	void operator=(const Vector3& vec)
 	{
 		x = vec.x;
 		y = vec.y;
 		z = vec.z;
 	}
 
-	const bool operator==(const Vector3 vec)
+	bool operator==(const Vector3& vec) const
 	{
 		return(x == vec.x && y == vec.y && z == vec.z);
 	}
 
-	void operator+(const Vector3 vec)
+	void operator+(const Vector3& vec) const
 	{
-		x = x + vec.x;
-		y = y + vec.y;
-		z = z + vec.z;
+		return(Vector3 temp_vec(x + vec.x, y + vec.y, z + vec.z));
 	}
 
-	void operator-(const Vector3 vec)
+	void operator-(const Vector3& vec) const
 	{
-		x = x - vec.x;
-		y = y - vec.y;
-		z = z - vec.z;
+		return(Vector3 tmp_vec(x - vec.x, y - vec.y, z - vec.z));
 	}
 
-	void operator+=(const Vector3 vec)
+	void operator+=(const Vector3& vec)
 	{
 		x += vec.x;
 		y += vec.y;
 		z += vec.z;
 	}
 
-	void operator-=(const Vector3 vec)
+	void operator-=(const Vector3& vec)
 	{
 		x -= vec.x;
 		y -= vec.y;
