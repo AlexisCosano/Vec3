@@ -23,12 +23,7 @@ public:
 
 	Vector3() {}
 
-	Vector3(const data &given_x, const data &given_y, const data &given_z) 
-	{
-		x = given_x;
-		y = given_y;
-		z = given_z;
-	}
+	Vector3(const data &given_x, const data &given_y, const data &given_z) : x(given_x), y(given_y), z(given_z) {}
 
 	Vector3(const Vector3 &vec_cpy)
 	{
@@ -41,17 +36,22 @@ public:
 
 	~Vector3() {};
 
-	// Methods -------------------------------------------------------------------------
+	// Utility -------------------------------------------------------------------------
 
 	void Normalize()
 	{
-		data normal = 0;
-
-		normal = sqrt((x*x) + (y*y) + (z*z));
+		data normal = sqrt((x*x) + (y*y) + (z*z)); 
 
 		x = x / normal;
 		y = y / normal;
 		z = z / normal;
+	}
+
+	void Inverse()
+	{
+		x = -x;
+		y = -y;
+		z = -z;
 	}
 
 	void Zero()
