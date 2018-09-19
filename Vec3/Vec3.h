@@ -2,10 +2,12 @@
 #include <iostream>
 #include <stdio.h>
 #include <math.h>
+
 /*
-Alexis Cosano Rodríguez "MrAlcoro"
+Alexis Cosano Rodríguez
 2018 - 2019
 */
+
 using namespace std;
 
 
@@ -21,14 +23,14 @@ public:
 
 	Vector3() {}
 
-	Vector3(data given_x, data given_y, data given_z) 
+	Vector3(const data &given_x, const data &given_y, const data &given_z) 
 	{
 		x = given_x;
 		y = given_y;
 		z = given_z;
 	}
 
-	Vector3(Vector3& vec_cpy)
+	Vector3(const Vector3 &vec_cpy)
 	{
 		x = vec_cpy.x;
 		y = vec_cpy.y;
@@ -43,13 +45,9 @@ public:
 
 	void Normalize()
 	{
-		data normal, a, b, c = 0;
+		data normal = 0;
 
-		a = pow(x, 2);
-		b = pow(y, 2);
-		c = pow(z, 2);
-
-		normal = sqrt(a + b + c);
+		normal = sqrt((x*x) + (y*y) + (z*z));
 
 		x = x / normal;
 		y = y / normal;
@@ -61,25 +59,16 @@ public:
 		x = y = z = 0;
 	}
 
-	bool IsZero()
+	bool IsZero() const
 	{
 		return(x == 0 && y == 0 && z == 0);
 	}
 
-	data DistanceTo(const Vector3 given_vec)
+	data DistanceTo(const Vector3 &given_vec) const
 	{
-		Vector3 tmp;
-		data a, b, c = 0;
+		Vector3 tmp_vec(x - given_vec.x, y - given_vec.y, z - given_vec.z);
 
-		tmp.x = x - given_vec.x;
-		tmp.y = y - given_vec.y;
-		tmp.z = z - given_vec.z;
-
-		a = pow(tmp.x, 2);
-		b = pow(tmp.y, 2);
-		c = pow(tmp.z, 2);
-
-		return(sqrt(a + b + c));
+		return(sqrt((tmp_vec.x*tmp_vec.x) + (tmp_vec.y*tmp_vec.y) + (tmp_vec.z*tmp_vec.z)));
 	}
 
 	const data GetX()
@@ -109,36 +98,36 @@ public:
 
 	// Operators -----------------------------------------------------------------------
 
-	void operator=(const Vector3& vec)
+	void operator=(const Vector3 &vec)
 	{
 		x = vec.x;
 		y = vec.y;
 		z = vec.z;
 	}
 
-	bool operator==(const Vector3& vec) const
+	bool operator==(const Vector3 &vec) const
 	{
 		return(x == vec.x && y == vec.y && z == vec.z);
 	}
 
-	void operator+(const Vector3& vec) const
+	Vector3 operator+(const Vector3 &vec) const
 	{
-		return(Vector3 temp_vec(x + vec.x, y + vec.y, z + vec.z));
+		return(Vector3(x + vec.x, y + vec.y, z + vec.z));
 	}
 
-	void operator-(const Vector3& vec) const
+	Vector3 operator-(const Vector3 &vec) const
 	{
-		return(Vector3 tmp_vec(x - vec.x, y - vec.y, z - vec.z));
+		return(Vector3(x - vec.x, y - vec.y, z - vec.z));
 	}
 
-	void operator+=(const Vector3& vec)
+	void operator+=(const Vector3 &vec)
 	{
 		x += vec.x;
 		y += vec.y;
 		z += vec.z;
 	}
 
-	void operator-=(const Vector3& vec)
+	void operator-=(const Vector3 &vec)
 	{
 		x -= vec.x;
 		y -= vec.y;
