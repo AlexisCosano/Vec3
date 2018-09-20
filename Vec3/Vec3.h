@@ -61,24 +61,23 @@ public:
 		return(x == 0 && y == 0 && z == 0);
 	}
 
-	data DistanceTo(const Vector3 &given_vec) const
+	data DistanceTo(const Vector3 &initial_vec) const
 	{
-		Vector3 tmp_vec(x - given_vec.x, y - given_vec.y, z - given_vec.z);
-
+		Vector3 tmp_vec(x - initial_vec.x, y - initial_vec.y, z - initial_vec.z);
 		return(sqrt((tmp_vec.x*tmp_vec.x) + (tmp_vec.y*tmp_vec.y) + (tmp_vec.z*tmp_vec.z)));
 	}
 
-	const data GetX()
+	const data GetX() const
 	{
 		return(x);
 	}
 
-	const data GetY()
+	const data GetY() const
 	{
 		return(y);
 	}
 
-	const data GetZ()
+	const data GetZ() const
 	{
 		return(z);
 	}
