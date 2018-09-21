@@ -1,6 +1,5 @@
-#pragma once
-#include <iostream>
-#include <stdio.h>
+#ifndef __VECTOR3_H__
+#define __VECTOR3_H__
 #include <math.h>
 
 /*
@@ -8,16 +7,13 @@ Alexis Cosano Rodríguez
 2018 - 2019
 */
 
-using namespace std;
-
-
-template <class data> class Vector3
+template <class DATA> class Vector3
 {
 
-private:
-	data x = 0;
-	data y = 0;
-	data z = 0;
+public:
+	DATA x = 0.0f;
+	DATA y = 0.0f;
+	DATA z = 0.0f;
 
 public:
 
@@ -25,7 +21,7 @@ public:
 
 	Vector3() {}
 
-	Vector3(const data &given_x, const data &given_y, const data &given_z) : x(given_x), y(given_y), z(given_z) {}
+	Vector3(const DATA &given_x, const DATA &given_y, const DATA &given_z) : x(given_x), y(given_y), z(given_z) {}
 
 	Vector3(const Vector3 &vec_cpy) : x(vec_cpy.x), y(vec_cpy.y), z(vec_cpy.z) {}
 	
@@ -35,13 +31,22 @@ public:
 
 	// Utility -------------------------------------------------------------------------
 
-	void Normalize()
+	Vector3 Normalize()
 	{
-		data normal = sqrt((x*x) + (y*y) + (z*z)); 
+		DATA normal = sqrt((x*x) + (y*y) + (z*z)); 
 
 		x = x / normal;
 		y = y / normal;
 		z = z / normal;
+
+		return(*this);
+	}
+
+	Vector3 Normalized() const
+	{
+		DATA normal = sqrt((x*x) + (y*y) + (z*z));
+
+		return(Vector3(x / normal, y / normal, z / normal));
 	}
 
 	void Inverse()
@@ -53,34 +58,29 @@ public:
 
 	void Zero()
 	{
-		x = y = z = 0;
+		x = y = z = 0.0f;
 	}
 
 	bool IsZero() const
 	{
-		return(x == 0 && y == 0 && z == 0);
+		return(x == 0.0f && y == 0.0f && z == 0.0f);
 	}
 
-	data DistanceTo(const Vector3 &initial_vec) const
+	DATA DistanceTo(const Vector3 &initial_vec) const
 	{
 		Vector3 tmp_vec(x - initial_vec.x, y - initial_vec.y, z - initial_vec.z);
 		return(sqrt((tmp_vec.x*tmp_vec.x) + (tmp_vec.y*tmp_vec.y) + (tmp_vec.z*tmp_vec.z)));
 	}
 
-	const data GetX() const
-	{
-		return(x);
-	}
-
-	const data GetY() const
-	{
-		return(y);
-	}
-
-	const data GetZ() const
-	{
-		return(z);
-	}
+	// DistanceSquared (same without squares)
+	// String
+	/*
+		string a;
+		string b("hello");
+		string c(b);
+		a = "bye";
+	*/
+	// String without templates
 
 	void ShowIntValues()
 	{
@@ -94,11 +94,13 @@ public:
 
 	// Operators -----------------------------------------------------------------------
 
-	void operator=(const Vector3 &vec)
+	Vector3 operator=(const Vector3 &vec)
 	{
 		x = vec.x;
 		y = vec.y;
 		z = vec.z;
+
+		return(*this);
 	}
 
 	bool operator==(const Vector3 &vec) const
@@ -116,18 +118,23 @@ public:
 		return(Vector3(x - vec.x, y - vec.y, z - vec.z));
 	}
 
-	void operator+=(const Vector3 &vec)
+	Vector3 operator+=(const Vector3 &vec)
 	{
 		x += vec.x;
 		y += vec.y;
 		z += vec.z;
+
+		return(*this);
 	}
 
-	void operator-=(const Vector3 &vec)
+	Vector3 operator-=(const Vector3 &vec)
 	{
 		x -= vec.x;
 		y -= vec.y;
 		z -= vec.z;
+
+		return(*this);
 	}
 };
 // --------------------------------------------------------------------------------
+#endif
