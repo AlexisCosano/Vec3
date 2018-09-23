@@ -72,15 +72,11 @@ public:
 		return(sqrt((tmp_vec.x*tmp_vec.x) + (tmp_vec.y*tmp_vec.y) + (tmp_vec.z*tmp_vec.z)));
 	}
 
-	// DistanceSquared (same without squares)
-	// String
-	/*
-		string a;
-		string b("hello");
-		string c(b);
-		a = "bye";
-	*/
-	// String without templates
+	DATA DistanceSquared(const Vector3 &initial_vec) const
+	{
+		Vector3 tmp_vec(x - initial_vec.x, y - initial_vec.y, z - initial_vec.z);
+		return((tmp_vec.x*tmp_vec.x) + (tmp_vec.y*tmp_vec.y) + (tmp_vec.z*tmp_vec.z));
+	}
 
 	void ShowIntValues()
 	{
